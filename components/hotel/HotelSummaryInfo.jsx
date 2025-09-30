@@ -47,13 +47,20 @@ export default function HotelSummaryInfo({
         </h2>
         <p className=" text-right">Per Night for 1 Rooms</p>
         {fromListPage ? (
-          <Link href={`hotels/${info?.id}${params}`} className="btn-primary ">
+          <Link href={`/hotels/${info?.id}${params}`} className="btn-primary ">
             Details
           </Link>
         ) : (
-          <button className={info?.isBooked ? "btn-disabled" : "btn-primary"}>
+          <Link
+            href={
+              info?.isBooked
+                ? "#"
+                : `/hotels/${info?.id}/payment${params.toString()}`
+            }
+            className={info?.isBooked ? "btn-disabled" : "btn-primary"}
+          >
             Book
-          </button>
+          </Link>
         )}
       </div>
     </>

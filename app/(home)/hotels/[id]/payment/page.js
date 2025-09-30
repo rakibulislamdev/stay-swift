@@ -1,12 +1,18 @@
 import { auth } from "@/auth";
 import PaymentForm from "@/components/payment/PaymentForm";
+import { getUserByEmail } from "@/database/queries";
 import { redirect } from "next/navigation";
 
-export default async function PaymentPage() {
+export default async function PaymentPage({ params, searchParams }) {
+  const { id } = await params;
+  const { checkin, checkout } = await searchParams;
+
   const session = await auth();
   if (!session) {
     redirect("/login");
   }
+
+  const loggedInUser = await getUserByEmail(session?.user?.email);
 
   return (
     <section className="container">
@@ -16,7 +22,7 @@ export default async function PaymentPage() {
           You have picked <b>Effotel By Sayaji Jaipur</b> and base price is{" "}
           <b>$10</b>
         </p>
-        <PaymentForm />
+        <PaymentForm checkin={checkin} checkout={checkout} />
       </div>
     </section>
   );
