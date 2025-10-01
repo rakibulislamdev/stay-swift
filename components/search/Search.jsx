@@ -58,7 +58,7 @@ const Search = ({ fromList, destination, checkin, checkout }) => {
               <select
                 name="destination"
                 id="destination"
-                defaultValue={searchTerm.destination}
+                defaultValue={searchTerm?.destination}
                 onChange={handleInputs}
               >
                 <option value="Puglia">Puglia</option>
@@ -77,7 +77,7 @@ const Search = ({ fromList, destination, checkin, checkout }) => {
                 type="date"
                 name="checkin"
                 id="checkin"
-                value={searchTerm.checkin}
+                value={searchTerm?.checkin}
                 onChange={handleInputs}
               />
             </h4>
@@ -90,7 +90,7 @@ const Search = ({ fromList, destination, checkin, checkout }) => {
                 type="date"
                 name="checkout"
                 id="checkout"
-                value={searchTerm.checkout}
+                value={searchTerm?.checkout}
                 onChange={handleInputs}
               />
             </h4>

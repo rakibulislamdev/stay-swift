@@ -14,7 +14,7 @@ const bookingSchema = new Schema({
     type: String,
     required: true,
   },
-  checkOut: {
+  checkout: {
     type: String,
     required: true,
   },
