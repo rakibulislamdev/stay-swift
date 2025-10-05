@@ -89,3 +89,8 @@ export async function getUserByEmail(email) {
   const user = await userModel.find({ email: email }).lean();
   return replaceMongoIdObject(user[0]);
 }
+
+export async function getBookingsByUser(userId) {
+  const bookings = await bookingModel.find({ userId: userId }).lean();
+  return replaceMongoIdArray(bookings);
+}
