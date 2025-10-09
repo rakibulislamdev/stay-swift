@@ -62,4 +62,6 @@ export const {
 
 function test(){
 console.log("hiii")
+function test(){
+console.log("hiii")
 }
