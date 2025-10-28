@@ -1,5 +1,5 @@
 import HotelList from "@/components/hotel/HotelList";
-import Filter from "@/components/search/Filter";
+import Filter from "@/components/search/filter/Filter";
 import Search from "@/components/search/Search";
 
 export default async function HotelListPage({ searchParams }) {
