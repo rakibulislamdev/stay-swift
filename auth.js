@@ -56,12 +56,3 @@ export const {
   ],
   secret: process.env.AUTH_SECRET,
 });
-
-
-//hiiiiiiiiii
-
-function test(){
-console.log("hiii")
-function test(){
-console.log("hiii")
-}

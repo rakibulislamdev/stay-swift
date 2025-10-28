@@ -29,6 +29,16 @@ export default function FilterByStarCategory() {
   };
 
   useEffect(() => {
+    const category = params.get("category");
+    if (category) {
+      const decodedCategory = decodeURI(category);
+
+      const queryInCategory = decodedCategory.split("|");
+      setQuery(queryInCategory);
+    }
+  }, []);
+
+  useEffect(() => {
     if (query.length > 0) {
       params.set("category", encodeURI(query.join("|")));
     } else {
@@ -46,6 +56,7 @@ export default function FilterByStarCategory() {
           <input
             type="checkbox"
             name="5"
+            checked={query.includes("5")}
             id="fiveStar"
             onChange={handleChange}
           />
@@ -56,6 +67,7 @@ export default function FilterByStarCategory() {
           <input
             type="checkbox"
             name="4"
+            checked={query.includes("4")}
             id="fourStar"
             onChange={handleChange}
           />
@@ -66,6 +78,7 @@ export default function FilterByStarCategory() {
           <input
             type="checkbox"
             name="3"
+            checked={query.includes("3")}
             id="threeStar"
             onChange={handleChange}
           />
@@ -76,6 +89,7 @@ export default function FilterByStarCategory() {
           <input
             type="checkbox"
             name="2"
+            checked={query.includes("2")}
             id="twoStar"
             onChange={handleChange}
           />
@@ -86,6 +100,7 @@ export default function FilterByStarCategory() {
           <input
             type="checkbox"
             name="1"
+            checked={query.includes("1")}
             id="oneStar"
             onChange={handleChange}
           />
