@@ -10,9 +10,15 @@ const refinedCategory = (category) => {
   return decodedCategory;
 };
 
+const refinedPriceRange = (priceRange) => {
+  const decodedPriceRange = decodeURI(priceRange);
+  if (decodedPriceRange === "undefined") return "";
+  return decodedPriceRange;
+};
+
 export default async function HotelListPage({ searchParams }) {
   const params = await searchParams;
-  const { destination, checkin, checkout, category } = params;
+  const { destination, checkin, checkout, category, priceRange } = params;
 
   return (
     <>
@@ -34,6 +40,7 @@ export default async function HotelListPage({ searchParams }) {
             checkin={checkin}
             checkout={checkout}
             category={refinedCategory(category)}
+            priceRange={refinedPriceRange(priceRange)}
           />
         </div>
       </section>

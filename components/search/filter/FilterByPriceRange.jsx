@@ -28,6 +28,16 @@ export default function FilterByPriceRange() {
   };
 
   useEffect(() => {
+    const priceRange = params.get("priceRange");
+
+    if (priceRange) {
+      const decodedPriceRange = decodeURI(priceRange);
+      const queryInPriceRange = decodedPriceRange.split("|");
+      setQuery(queryInPriceRange);
+    }
+  }, []);
+
+  useEffect(() => {
     if (query.length > 0) {
       params.set("priceRange", encodeURI(query.join("|")));
     } else {
@@ -41,64 +51,70 @@ export default function FilterByPriceRange() {
     <div>
       <h3 className="font-bold text-lg">Price Range</h3>
       <form action="" className="flex flex-col gap-2 mt-2">
-        <label htmlFor="13-30">
+        <label htmlFor="100-499">
           <input
             onChange={handleChange}
+            checked={query.includes("100-499")}
             type="checkbox"
-            name="13-30"
-            id="13-30"
+            name="100-499"
+            id="100-499"
           />
-          $ 13 - $ 30
+          $ 100 - $ 499
         </label>
 
-        <label htmlFor="30-60">
+        <label htmlFor="500-999">
           <input
             onChange={handleChange}
+            checked={query.includes("500-999")}
             type="checkbox"
-            name="30-60"
-            id="30-60"
+            name="500-999"
+            id="500-999"
           />
-          $ 30 - $ 60
+          $ 500 - $ 999
         </label>
 
-        <label htmlFor="60-97">
+        <label htmlFor="1000-1499">
           <input
             onChange={handleChange}
+            checked={query.includes("1000-1499")}
             type="checkbox"
-            name="60-97"
-            id="60-97"
+            name="1000-1499"
+            id="1000-1499"
           />
-          $ 60 - $ 97
+          $ 1000 - $ 1499
         </label>
 
-        <label htmlFor="97-152">
+        <label htmlFor="1500-1999">
           <input
             onChange={handleChange}
+            checked={query.includes("1500-1999")}
             type="checkbox"
-            name="97-152"
-            id="97-152"
+            name="1500-1999"
+            id="1500-1999"
           />
-          $ 97 - $ 152
+          $ 1500 - $ 1999
         </label>
 
-        <label htmlFor="152-182">
+        <label htmlFor="2000-2499">
           <input
             onChange={handleChange}
+            checked={query.includes("2000-2499")}
             type="checkbox"
-            name="152-182"
-            id="152-182"
+            name="2000-2499"
+            id="2000-2499"
           />
-          $ 152 - $ 182
+          $ 2000 - $ 2499
         </label>
 
-        <label htmlFor="182+">
+        <label htmlFor="2500+">
           <input
             onChange={handleChange}
+            checked={query.includes("2500+")}
             type="checkbox"
-            name="182+"
-            id="182+"
+            name="2500+"
+            id="2500+"
           />
-          $ 182+
+          $ 2500+
         </label>
       </form>
     </div>
