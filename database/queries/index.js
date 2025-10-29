@@ -14,7 +14,8 @@ export async function getAllHotels(
   checkin,
   checkout,
   category,
-  priceRange
+  priceRange,
+  amenities
 ) {
   const regex = new RegExp(destination, "i");
 

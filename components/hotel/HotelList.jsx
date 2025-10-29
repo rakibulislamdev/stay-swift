@@ -16,6 +16,8 @@ const HotelList = async ({
     category,
     priceRange
   );
+
+  console.log(allHotels);
   return (
     <div className="col-span-9">
       <div className="space-y-4">
