@@ -24,8 +24,6 @@ export default function FilterByStarCategory() {
       const filtered = query.filter((item) => item !== name);
       setQuery(filtered);
     }
-
-    console.log(query);
   };
 
   useEffect(() => {
