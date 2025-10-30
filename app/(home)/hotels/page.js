@@ -18,7 +18,7 @@ const refinedPriceRange = (priceRange) => {
 
 export default async function HotelListPage({ searchParams }) {
   const params = await searchParams;
-  const { destination, checkin, checkout, category, priceRange } = params;
+  const { destination, checkin, checkout, category, priceRange, sort } = params;
 
   return (
     <>
@@ -41,6 +41,7 @@ export default async function HotelListPage({ searchParams }) {
             checkout={checkout}
             category={refinedCategory(category)}
             priceRange={refinedPriceRange(priceRange)}
+            sort={sort}
           />
         </div>
       </section>

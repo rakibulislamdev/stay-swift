@@ -15,7 +15,7 @@ export async function getAllHotels(
   checkout,
   category,
   priceRange,
-  amenities
+  sort
 ) {
   const regex = new RegExp(destination, "i");
 
@@ -56,6 +56,17 @@ export async function getAllHotels(
         }
       });
     });
+  }
+
+  if (sort) {
+    const sortedHotels = [...allHotels];
+    if (sort === "lowToHigh") {
+      sortedHotels.sort((a, b) => a.lowRate - b.lowRate);
+    } else if (sort === "highToLow") {
+      sortedHotels.sort((a, b) => b.lowRate - a.lowRate);
+    }
+
+    allHotels = sortedHotels;
   }
 
   if (checkin && checkout) {

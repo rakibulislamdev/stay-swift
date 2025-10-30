@@ -8,16 +8,17 @@ const HotelList = async ({
   checkout,
   category,
   priceRange,
+  sort,
 }) => {
   const allHotels = await getAllHotels(
     destination,
     checkin,
     checkout,
     category,
-    priceRange
+    priceRange,
+    sort
   );
 
-  console.log(allHotels);
   return (
     <div className="col-span-9">
       <div className="space-y-4">

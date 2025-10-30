@@ -23,8 +23,6 @@ export default function FilterByPriceRange() {
       const filtered = query.filter((item) => item !== name);
       setQuery(filtered);
     }
-
-    console.log("query", query);
   };
 
   useEffect(() => {
